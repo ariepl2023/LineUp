@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { View, ScrollView, StyleSheet, Alert } from 'react-native';
 import { Text, Button, TextInput, Menu, Divider } from 'react-native-paper';
 import { useClerk } from '@clerk/expo';
+import { useRouter } from 'expo-router';
 import { useApiClient } from '../api/client';
 import { getBeaches } from '../api/beaches';
 import { getPreferences, savePreferences } from '../api/preferences';
 
 type Beach = { id: number; name: string };
 
-export default function SettingsScreen({ navigation }: any) {
+export default function SettingsScreen() {
   const api = useApiClient();
+  const router = useRouter();
   const { signOut } = useClerk();
 
   const [beaches, setBeaches] = useState<Beach[]>([]);
@@ -123,7 +125,7 @@ export default function SettingsScreen({ navigation }: any) {
       <Button
         mode="outlined"
         icon="send"
-        onPress={() => navigation.navigate('ConnectTelegram')}
+        onPress={() => router.push('/connect-telegram')}
         style={styles.telegramBtn}
       >
         חבר טלגרם

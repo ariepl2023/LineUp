@@ -1,8 +1,7 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
 import { AuthView } from '@clerk/expo/native';
+import { View, StyleSheet } from 'react-native';
 
-export default function AuthScreen() {
+export default function SignInScreen() {
   return (
     <View style={styles.container}>
       <AuthView />
@@ -11,5 +10,7 @@ export default function AuthScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1 },
+  container: {
+    flex: 1,
+  },
 });
